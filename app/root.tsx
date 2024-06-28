@@ -10,10 +10,24 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import stylesheet from "~/index.css";
 import { getUser } from "~/session.server";
-import stylesheet from "~/tailwind.css";
 
 export const links: LinksFunction = () => [
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Patua+One&display=swap",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://unpkg.com/classless-tufte-css@1.3.0/tufte.min.css",
+  },
   { rel: "stylesheet", href: stylesheet },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];

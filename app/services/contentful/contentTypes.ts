@@ -1,4 +1,4 @@
-import type {
+import {
   ChainModifiers,
   Entry,
   EntryFieldTypes,
@@ -6,45 +6,12 @@ import type {
   LocaleCode,
 } from "contentful";
 
-/**
- * Fields type definition for content type 'TypeApp'
- * @name TypeAppFields
- * @type {TypeAppFields}
- * @memberof TypeApp
- */
 export interface TypeAppFields {
-  /**
-   * Field type definition for field 'title' (Title)
-   * @name Title
-   * @localized false
-   */
   title: EntryFieldTypes.Symbol;
-  /**
-   * Field type definition for field 'content' (Content)
-   * @name Content
-   * @localized false
-   */
   content?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>;
 }
 
-/**
- * Entry skeleton type definition for content type 'app' (App)
- * @name TypeAppSkeleton
- * @type {TypeAppSkeleton}
- * @author 5e2VbtKbHE7Nfq03Ndv3a9
- * @since 2024-05-22T21:12:19.664Z
- * @version 3
- */
 export type TypeAppSkeleton = EntrySkeletonType<TypeAppFields, "app">;
-/**
- * Entry type definition for content type 'app' (App)
- * @name TypeApp
- * @type {TypeApp}
- * @author Ryan Spencer<rspencer@bitovi.com>
- * @since 2024-05-22T21:12:19.664Z
- * @version 3
- * @link https://app.contentful.com/spaces/be7s6bfvlrix/environments/master/content_types/app
- */
 export type TypeApp<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode,
@@ -59,41 +26,27 @@ export function isTypeApp<
   return entry.sys.contentType.sys.id === "app";
 }
 
-/**
- * Fields type definition for content type 'TypeCyoa'
- * @name TypeCyoaFields
- * @type {TypeCyoaFields}
- * @memberof TypeCyoa
- */
+export type TypeAppWithoutLinkResolutionResponse =
+  TypeApp<"WITHOUT_LINK_RESOLUTION">;
+export type TypeAppWithoutUnresolvableLinksResponse =
+  TypeApp<"WITHOUT_UNRESOLVABLE_LINKS">;
+export type TypeAppWithAllLocalesResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeApp<"WITH_ALL_LOCALES", Locales>;
+export type TypeAppWithAllLocalesAndWithoutLinkResolutionResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeApp<"WITHOUT_LINK_RESOLUTION" | "WITH_ALL_LOCALES", Locales>;
+export type TypeAppWithAllLocalesAndWithoutUnresolvableLinksResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeApp<"WITHOUT_UNRESOLVABLE_LINKS" | "WITH_ALL_LOCALES", Locales>;
+
 export interface TypeCyoaFields {
-  /**
-   * Field type definition for field 'stories' (Stories)
-   * @name Stories
-   * @localized false
-   */
   stories?: EntryFieldTypes.Array<
     EntryFieldTypes.EntryLink<TypeCyoaStorySkeleton>
   >;
 }
 
-/**
- * Entry skeleton type definition for content type 'cyoa' (CYOA)
- * @name TypeCyoaSkeleton
- * @type {TypeCyoaSkeleton}
- * @author 5e2VbtKbHE7Nfq03Ndv3a9
- * @since 2024-05-22T21:42:01.361Z
- * @version 5
- */
 export type TypeCyoaSkeleton = EntrySkeletonType<TypeCyoaFields, "cyoa">;
-/**
- * Entry type definition for content type 'cyoa' (CYOA)
- * @name TypeCyoa
- * @type {TypeCyoa}
- * @author Ryan Spencer<rspencer@bitovi.com>
- * @since 2024-05-22T21:42:01.361Z
- * @version 5
- * @link https://app.contentful.com/spaces/be7s6bfvlrix/environments/master/content_types/cyoa
- */
 export type TypeCyoa<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode,
@@ -108,120 +61,79 @@ export function isTypeCyoa<
   return entry.sys.contentType.sys.id === "cyoa";
 }
 
-/**
- * Fields type definition for content type 'TypeCyoaDecision'
- * @name TypeCyoaDecisionFields
- * @type {TypeCyoaDecisionFields}
- * @memberof TypeCyoaDecision
- */
-export interface TypeCyoaDecisionFields {
-  /**
-   * Field type definition for field 'title' (Title)
-   * @name Title
-   * @localized false
-   */
+export type TypeCyoaWithoutLinkResolutionResponse =
+  TypeCyoa<"WITHOUT_LINK_RESOLUTION">;
+export type TypeCyoaWithoutUnresolvableLinksResponse =
+  TypeCyoa<"WITHOUT_UNRESOLVABLE_LINKS">;
+export type TypeCyoaWithAllLocalesResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoa<"WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaWithAllLocalesAndWithoutLinkResolutionResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoa<"WITHOUT_LINK_RESOLUTION" | "WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaWithAllLocalesAndWithoutUnresolvableLinksResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoa<"WITHOUT_UNRESOLVABLE_LINKS" | "WITH_ALL_LOCALES", Locales>;
+
+export interface TypeCyoaChoiceFields {
   title: EntryFieldTypes.Symbol;
-  /**
-   * Field type definition for field 'content' (Content)
-   * @name Content
-   * @localized false
-   */
-  content?: EntryFieldTypes.RichText;
-  /**
-   * Field type definition for field 'destination' (Destination)
-   * @name Destination
-   * @localized false
-   */
   destination: EntryFieldTypes.EntryLink<TypeCyoaPageSkeleton>;
 }
 
-/**
- * Entry skeleton type definition for content type 'cyoaDecision' (CYOA Decision)
- * @name TypeCyoaDecisionSkeleton
- * @type {TypeCyoaDecisionSkeleton}
- * @author 5e2VbtKbHE7Nfq03Ndv3a9
- * @since 2024-05-22T21:59:02.557Z
- * @version 7
- */
-export type TypeCyoaDecisionSkeleton = EntrySkeletonType<
-  TypeCyoaDecisionFields,
-  "cyoaDecision"
+export type TypeCyoaChoiceSkeleton = EntrySkeletonType<
+  TypeCyoaChoiceFields,
+  "cyoaChoice"
 >;
-/**
- * Entry type definition for content type 'cyoaDecision' (CYOA Decision)
- * @name TypeCyoaDecision
- * @type {TypeCyoaDecision}
- * @author Ryan Spencer<rspencer@bitovi.com>
- * @since 2024-05-22T21:59:02.557Z
- * @version 7
- * @link https://app.contentful.com/spaces/be7s6bfvlrix/environments/master/content_types/cyoaDecision
- */
-export type TypeCyoaDecision<
+export type TypeCyoaChoice<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode,
-> = Entry<TypeCyoaDecisionSkeleton, Modifiers, Locales>;
+> = Entry<TypeCyoaChoiceSkeleton, Modifiers, Locales>;
 
-export function isTypeCyoaDecision<
+// The original, generated type-guard wasn't sufficient for nested entries, so I've updated it to be more flexible. This accepts `unknown`, which is basically anything, which is what we need because Contentful's API response could carry some unexpected data due to old, outdated linked entries.
+export function isTypeCyoaChoice<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode,
->(
-  entry:
-    | Entry<EntrySkeletonType, Modifiers, Locales>
-    | NonNullable<TypeCyoaPageFields["choice"]>[number],
-): entry is TypeCyoaDecision<Modifiers, Locales> {
-  return entry.sys.contentType.sys.id === "cyoaDecision";
+>(entry: unknown): entry is TypeCyoaChoice<Modifiers, Locales> {
+  if (typeof entry === "object" && entry !== null && "sys" in entry) {
+    return (
+      (entry as Entry<EntrySkeletonType, Modifiers, Locales>).sys?.contentType
+        ?.sys?.id === "cyoaChoice"
+    );
+  }
+  return false;
 }
 
-/**
- * Fields type definition for content type 'TypeCyoaPage'
- * @name TypeCyoaPageFields
- * @type {TypeCyoaPageFields}
- * @memberof TypeCyoaPage
- */
+// The original, generated type-guard...
+// export function isTypeCyoaChoice<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeCyoaChoice<Modifiers, Locales> {
+//     return entry.sys.contentType.sys.id === 'cyoaChoice'
+// }
+
+export type TypeCyoaChoiceWithoutLinkResolutionResponse =
+  TypeCyoaChoice<"WITHOUT_LINK_RESOLUTION">;
+export type TypeCyoaChoiceWithoutUnresolvableLinksResponse =
+  TypeCyoaChoice<"WITHOUT_UNRESOLVABLE_LINKS">;
+export type TypeCyoaChoiceWithAllLocalesResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaChoice<"WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaChoiceWithAllLocalesAndWithoutLinkResolutionResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaChoice<"WITHOUT_LINK_RESOLUTION" | "WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaChoiceWithAllLocalesAndWithoutUnresolvableLinksResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaChoice<"WITHOUT_UNRESOLVABLE_LINKS" | "WITH_ALL_LOCALES", Locales>;
+
 export interface TypeCyoaPageFields {
-  /**
-   * Field type definition for field 'title' (Title)
-   * @name Title
-   * @localized false
-   */
   title: EntryFieldTypes.Symbol;
-  /**
-   * Field type definition for field 'content' (Content)
-   * @name Content
-   * @localized false
-   */
   content?: EntryFieldTypes.RichText;
-  /**
-   * Field type definition for field 'choice' (Choice)
-   * @name Choice
-   * @localized false
-   */
   choice?: EntryFieldTypes.Array<
-    EntryFieldTypes.EntryLink<TypeCyoaDecisionSkeleton>
+    EntryFieldTypes.EntryLink<TypeCyoaChoiceSkeleton>
   >;
 }
 
-/**
- * Entry skeleton type definition for content type 'cyoaPage' (CYOA Page)
- * @name TypeCyoaPageSkeleton
- * @type {TypeCyoaPageSkeleton}
- * @author 5e2VbtKbHE7Nfq03Ndv3a9
- * @since 2024-05-22T21:33:47.129Z
- * @version 3
- */
 export type TypeCyoaPageSkeleton = EntrySkeletonType<
   TypeCyoaPageFields,
   "cyoaPage"
 >;
-/**
- * Entry type definition for content type 'cyoaPage' (CYOA Page)
- * @name TypeCyoaPage
- * @type {TypeCyoaPage}
- * @author Ryan Spencer<rspencer@bitovi.com>
- * @since 2024-05-22T21:33:47.129Z
- * @version 3
- * @link https://app.contentful.com/spaces/be7s6bfvlrix/environments/master/content_types/cyoaPage
- */
 export type TypeCyoaPage<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode,
@@ -236,54 +148,30 @@ export function isTypeCyoaPage<
   return entry.sys.contentType.sys.id === "cyoaPage";
 }
 
-/**
- * Fields type definition for content type 'TypeCyoaStory'
- * @name TypeCyoaStoryFields
- * @type {TypeCyoaStoryFields}
- * @memberof TypeCyoaStory
- */
+export type TypeCyoaPageWithoutLinkResolutionResponse =
+  TypeCyoaPage<"WITHOUT_LINK_RESOLUTION">;
+export type TypeCyoaPageWithoutUnresolvableLinksResponse =
+  TypeCyoaPage<"WITHOUT_UNRESOLVABLE_LINKS">;
+export type TypeCyoaPageWithAllLocalesResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaPage<"WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaPageWithAllLocalesAndWithoutLinkResolutionResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaPage<"WITHOUT_LINK_RESOLUTION" | "WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaPageWithAllLocalesAndWithoutUnresolvableLinksResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaPage<"WITHOUT_UNRESOLVABLE_LINKS" | "WITH_ALL_LOCALES", Locales>;
+
 export interface TypeCyoaStoryFields {
-  /**
-   * Field type definition for field 'title' (Title)
-   * @name Title
-   * @localized false
-   */
   title: EntryFieldTypes.Symbol;
-  /**
-   * Field type definition for field 'entryPage' (Entry Page)
-   * @name Entry Page
-   * @localized false
-   */
   entryPage?: EntryFieldTypes.EntryLink<TypeCyoaPageSkeleton>;
-  /**
-   * Field type definition for field 'description' (Description)
-   * @name Description
-   * @localized false
-   */
   description?: EntryFieldTypes.RichText;
 }
 
-/**
- * Entry skeleton type definition for content type 'cyoaStory' (CYOA Story)
- * @name TypeCyoaStorySkeleton
- * @type {TypeCyoaStorySkeleton}
- * @author 5e2VbtKbHE7Nfq03Ndv3a9
- * @since 2024-05-22T21:27:49.147Z
- * @version 5
- */
 export type TypeCyoaStorySkeleton = EntrySkeletonType<
   TypeCyoaStoryFields,
   "cyoaStory"
 >;
-/**
- * Entry type definition for content type 'cyoaStory' (CYOA Story)
- * @name TypeCyoaStory
- * @type {TypeCyoaStory}
- * @author Ryan Spencer<rspencer@bitovi.com>
- * @since 2024-05-22T21:27:49.147Z
- * @version 5
- * @link https://app.contentful.com/spaces/be7s6bfvlrix/environments/master/content_types/cyoaStory
- */
 export type TypeCyoaStory<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode,
@@ -297,3 +185,17 @@ export function isTypeCyoaStory<
 ): entry is TypeCyoaStory<Modifiers, Locales> {
   return entry.sys.contentType.sys.id === "cyoaStory";
 }
+
+export type TypeCyoaStoryWithoutLinkResolutionResponse =
+  TypeCyoaStory<"WITHOUT_LINK_RESOLUTION">;
+export type TypeCyoaStoryWithoutUnresolvableLinksResponse =
+  TypeCyoaStory<"WITHOUT_UNRESOLVABLE_LINKS">;
+export type TypeCyoaStoryWithAllLocalesResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaStory<"WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaStoryWithAllLocalesAndWithoutLinkResolutionResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaStory<"WITHOUT_LINK_RESOLUTION" | "WITH_ALL_LOCALES", Locales>;
+export type TypeCyoaStoryWithAllLocalesAndWithoutUnresolvableLinksResponse<
+  Locales extends LocaleCode = LocaleCode,
+> = TypeCyoaStory<"WITHOUT_UNRESOLVABLE_LINKS" | "WITH_ALL_LOCALES", Locales>;

@@ -64,14 +64,7 @@ const renderOptions = (config?: RenderOptionsConfig) => {
 
         return (
           <img
-            className={config?.image.className}
-            style={{
-              maxWidth: "5rem",
-              height: "auto",
-              borderRadius: "0.5rem",
-              float: "left",
-              marginRight: "1rem",
-            }}
+            className={`contentful ${config?.image.className || ""}`}
             src={url.toString()}
             height={200}
             alt={node.data.target.fields.description}

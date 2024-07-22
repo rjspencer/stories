@@ -1,9 +1,10 @@
-import type {
+import {
   ActionFunctionArgs,
   LoaderFunctionArgs,
   MetaFunction,
+  json,
+  redirect,
 } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 

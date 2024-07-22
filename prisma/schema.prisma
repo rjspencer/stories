@@ -25,9 +25,9 @@ model Password {
   userId String @unique
 }
 
-model Note {
+model Review {
   id    String @id @default(cuid())
-  title String
+  rating Int
   body  String
 
   createdAt DateTime @default(now())

@@ -1,5 +1,9 @@
 import client from "./client";
-import { isTypeCyoaPage, TypeCyoaPageSkeleton } from "./contentTypes";
+import {
+  isTypeCyoaChoice,
+  isTypeCyoaPage,
+  TypeCyoaPageSkeleton,
+} from "./contentTypes";
 
 export const getAll = async () => {
   const response = await client.getEntries<TypeCyoaPageSkeleton>({
@@ -12,7 +16,14 @@ export const get = async (id: string) => {
   const response = await client.getEntry<TypeCyoaPageSkeleton>(id);
 
   if (isTypeCyoaPage(response)) {
-    return response.fields;
+    // Filter out any mis-linked entries and lock in a better type
+    const choice =
+      response.fields.choice?.filter((entry) => isTypeCyoaChoice(entry)) ?? [];
+
+    return {
+      ...response.fields,
+      choice,
+    };
   }
   return null;
 };

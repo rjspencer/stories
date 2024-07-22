@@ -1,9 +1,13 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { flatRoutes } = require("remix-flat-routes");
+
 /** @type {import('@remix-run/dev').AppConfig} */
+
 module.exports = {
   cacheDirectory: "./node_modules/.cache/remix",
   ignoredRouteFiles: ["**/.*", "**/*.test.{ts,tsx}"],
   serverModuleFormat: "cjs",
-  dev: {
-    port: 4444,
+  routes: async (defineRoutes) => {
+    return flatRoutes("routes", defineRoutes);
   },
 };

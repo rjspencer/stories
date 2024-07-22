@@ -1,9 +1,13 @@
-import { LoaderFunction, json, redirect } from "@remix-run/node";
+import { LinksFunction, LoaderFunction, json, redirect } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
+import styles from "./styles.css";
+
 import ContentfulDocument from "~/components/ContentfulDocument";
 import { Stories } from "~/services/contentful";
+
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.id, "No id provided");

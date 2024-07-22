@@ -1,7 +1,12 @@
+import { LinksFunction } from "@remix-run/node";
 import { Link, json, useLoaderData } from "@remix-run/react";
+
+import styles from "./styles.css";
 
 import ContentfulDocument from "~/components/ContentfulDocument";
 import { Stories } from "~/services/contentful";
+
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export async function loader() {
   const storyList = await Stories.getAll();
@@ -15,13 +20,14 @@ export default function StoriesPage() {
 
   return (
     <article>
-      <h1>Stories Page</h1>
-      <ul>
+      <h1>Stories</h1>
+      <ul className="library">
         {storyList.map((story) => (
           <li key={story.sys.id}>
-            <p>{story.fields.title}</p>
-            <ContentfulDocument document={story.fields.description} />
-            <Link to={`/stories/${story.sys.id}`}>Read now...</Link>
+            <Link to={`/stories/${story.sys.id}`} className="book">
+              <h4>{story.fields.title}</h4>
+              <ContentfulDocument document={story.fields.description} />
+            </Link>
           </li>
         ))}
       </ul>

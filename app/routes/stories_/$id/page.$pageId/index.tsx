@@ -4,7 +4,6 @@ import invariant from "tiny-invariant";
 
 import ContentfulDocument from "~/components/ContentfulDocument";
 import { Pages } from "~/services/contentful";
-import { isTypeCyoaDecision } from "~/services/contentful/contentTypes";
 
 type LoaderData = {
   storyId: string;
@@ -34,18 +33,12 @@ const StoriesPage: React.FC = () => {
       {page.content ? <ContentfulDocument document={page.content} /> : null}
       <section>
         <ul>
-          {page.choice?.map((choice) => {
-            if (!isTypeCyoaDecision(choice)) {
-              return null;
-            }
-
+          {page.choice.map(({ fields }) => {
+            const id = fields.destination.sys.id;
             return (
-              <li key={choice.sys.id}>
-                <Link
-                  key={choice.sys.id}
-                  to={`/stories/${storyId}/page/${choice?.fields.destination.sys.id}`}
-                >
-                  {choice?.fields?.title}
+              <li key={id}>
+                <Link key={id} to={`/stories/${storyId}/page/${id}`}>
+                  {fields.title}
                 </Link>
               </li>
             );
